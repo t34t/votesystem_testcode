@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="UTF-8">
+        <title>按顺序读取选中的复选框</title>
+        <style>
+            body{margin: 20px;}
+        </style>
+        <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    </head>
+    <body>
+        <label>
+            <input type="checkbox" name="direction1" value="东"/>东<!-- checked="checked" -->
+            <input type="text" id="sort1">
+        </label>
+        <label>
+            <input type="checkbox" name="direction2" value="南"/>南
+            <input type="text" id="sort2">
+        </label>
+        <label>
+            <input type="checkbox" name="direction3" value="西"/>西
+            <input type="text" id="sort3">
+        </label>
+        <label>
+            <input type="checkbox" name="direction4" value="北"/>北
+            <input type="text" id="sort4">
+        </label>
+        <button>查看选中顺序</button>
+    </body>
+
+<input type="checkbox" id="checkbox1"> <input type="checkbox" id="checkbox2"> <input type="checkbox" id="checkbox3">
+<script>
+var checkboxOrder = []; 
+var checkboxes = document.querySelectorAll('input[type="checkbox"]'); 
+    checkboxes.forEach(function (checkbox) { 
+        checkbox.addEventListener('click', function () { 
+            var checkboxId = this.id; 
+            checkboxOrder.push(checkboxId); 
+            var displayString = "";  
+            checkboxOrder.forEach(function (id, index) {
+                if(index>3) index=0;
+                displayString = "" + (index + 1); 
+                if(id == "checkbox1")
+                    document.getElementById("sort1").value = displayString 
+                if(id == "checkbox2")
+                    document.getElementById("sort2").value = displayString 
+                if(id == "checkbox3")
+                    document.getElementById("sort3").value = displayString 
+            });
+        }); 
+    });
+</script>
+    <script>
+        let chooseCheckbox = new Array();   //定义选中数组
+        $("input[name='direction']").click(function () {
+            let value = $(this).val();  //当前复选框的值
+            let index = $.inArray(value, chooseCheckbox); //返回指定值在数组中的索引。如果没有找到，则返回 -1
+ 
+            let isChecked = $(this).prop('checked');    //是否选中
+            if (isChecked) { //如果选中
+                if(index == -1){  //不存在，把值压入数组尾部
+                    chooseCheckbox.push(value);
+                }
+            } else {    //如果取消
+                if(index != -1){  //数组中存在，移除数组指定元素(当前点击复选框的值)
+                    chooseCheckbox.splice($.inArray(value, chooseCheckbox), 1);
+                }
+            }
+        });
+ 
+        //按钮点击事件
+        $('button').click(function () {
+            alert('您选择的顺序是：' + JSON.stringify(chooseCheckbox) );
+        });
+    </script>
+</html>

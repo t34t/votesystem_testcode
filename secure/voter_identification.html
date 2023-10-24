@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Electoral Role Search</title>
+    <link rel="stylesheet" type="text/css" href="css/home.css">
+	<script src="js/address.js"></script>
+</head>
+<body>
+	<div class="home-container">
+		<div class="xiao-register-box">
+			<div class="xiao-title-box">
+				<span>Electoral Role Search</span>
+			</div>
+			<form action="#" method="post">
+				<div class="xiao-username-box">
+					<span class="home-require">*</span>
+					<label for="username">Full Name</label><br>
+					<div class="xiao-username-input">
+						<input type="text" id="username" name="username" placeholder="Enter your full name here..." autocomplete="on"/>
+					</div>
+				</div>
+ 
+				<div class="xiao-userPassword-box">
+					<span class="home-require">*</span>
+					<label for="addrs_1">Address</label><br>
+					<div class="xiao-userPassword-input">
+						<input type="search" id="addrs_1" placeholder="Search address here..." />
+					</div>
+				</div>
+ 
+				<div class="xiao-userRePassword-box">
+				<span class="home-require">*</span>
+						<label for="userRePassword">Appartment Suite,etc (optional)</label><br>
+					<div class="xiao-userRePassword-input">
+						<input type="password" id="userRePassword" name="userRePassword" />
+					</div>
+				</div>
+ 
+				<div class="xiao-userPhone-box">
+					<span class="home-require">*</span>
+					<label for="userPhone">Suburb</label><br>
+					<div class="xiao-userPhone-input">
+						<input type="text" id="userPhone" name="userPhone"  placeholder="Search location here..."/>
+					</div>
+				</div>
+				
+				<div class="xiao-userEmail-box">
+					<span class="home-require">*</span>
+					<label for="userEmail">State</label><br>
+					<div class="xiao-userEmail-input">
+						<input type="text" id="userEmail" name="userEmail" />
+					</div>
+				</div>
+				
+				<div class="xiao-userGender-box">
+					<span class="home-require">*</span>
+					<label for="userEmail1">PostCode</label><br>
+					<div class="xiao-userGender-input">
+						<input type="text" id="userEmail1" name="userEmail" />
+					</div>
+				</div>
+                <br><br><br><br><br>
+                <div class="vote-checkbox">
+					<div class="vote-checkbox-input">
+                        <input type="checkbox"  name="checkVoted" value = "1" />  Have you voted before in THIS election?(Tick if already)
+					</div>
+				</div>
+		
+                <div class="xiao-submit-box">
+					<input id = "xiao-submit-button" type="submit" value="Next">
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
